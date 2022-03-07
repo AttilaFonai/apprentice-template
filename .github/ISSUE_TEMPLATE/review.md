@@ -2,7 +2,7 @@
 name: 🧐 Code Review (legacy)
 about: Create a code review entry
 title: 'Review <title>'
-labels: week-01
+labels: review
 assignees: ''
 ---
 
