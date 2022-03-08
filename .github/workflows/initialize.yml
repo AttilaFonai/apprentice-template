@@ -94,7 +94,7 @@ jobs:
       - name: Delete the original readme and assets
         run: |
           rm -rf README.md assets
-      - name: Remove the initialize workshop
+      - name: Remove the initialize workflow
         run: |
           rm -f .github/workflows/initialize.yml
       - name: Commit the deletion
