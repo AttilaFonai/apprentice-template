@@ -1,7 +1,7 @@
 name: 🧐 Code Review
 description: Create a code review entry
 title: "Review <title>"
-labels: [week-01]
+labels: [review]
 body:
 - type: textarea
   id: review
