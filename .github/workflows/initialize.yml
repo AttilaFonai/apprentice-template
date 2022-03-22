@@ -87,7 +87,29 @@ jobs:
 
   clean-up:
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.clean == 'true' }}
+    if: ${{ github.event.inputs.clean == 'true' && github.event.inputs.folders == 'true' }}
+    needs: folders
+    permissions: write-all
+    steps:
+      - uses: actions/checkout@v2
+      - name: Delete the original readme and assets
+        run: |
+          rm -rf README.md assets
+      - name: Remove the initialize workflow
+        run: |
+          rm -f .github/workflows/initialize.yml
+      - name: Commit the deletion
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "github action"
+          git pull
+          git add .
+          git commit -am "deleted the initialize workflow"
+          git push
+
+  clean-up2:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.clean == 'true' && github.event.inputs.folders == 'false' }}
     permissions: write-all
     steps:
       - uses: actions/checkout@v2
