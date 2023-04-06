@@ -4,6 +4,9 @@
 *.tmp
 logs
 
+### Mac OS
+.DS_Store
+
 # JetBrains
 cmake-build-*/
 
